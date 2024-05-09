@@ -10,7 +10,7 @@
 3. Put The Token, Webook Link, Prefix And Channel Ids In `config.json`
 4. Run `Main.py`
 
-### Example Cofig.json
+## Example Cofig.json
 ```json
 {
     "BOT": {
