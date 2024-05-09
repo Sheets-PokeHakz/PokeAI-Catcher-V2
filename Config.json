@@ -1,0 +1,52 @@
+{
+    "BOT": {
+        "Prefix": ".",
+        "Token": [
+            "MTE2ODA3Mzg4NjI1NzEzNTYxOQ.GZMI8F.fyjquyL2xkJutdFn9bFg89o8eCKZGKHs2e8TyQ",
+            "MTE5OTIxNTc3OTgyOTI3MjY4Nw.GyjOla.2QRlpCTyXru2tVQeiszdmFniag_QLEAkLM2Zag"
+        ]
+    },
+    "SPAM": {
+        "Spam": "Enabled",
+        "Channel": 1226540735701192780,
+        "Intervals": [
+            3,
+            3.2,
+            3.5,
+            3.8,
+            4,
+            4.2,
+            4.5,
+            4.8,
+            5,
+            5.2,
+            5.5,
+            5.8,
+            6
+        ]
+    },
+    "CATCH": {
+        "Intervals": [
+            1.0,
+            1.2,
+            1.3,
+            1.4,
+            1.5,
+            1.6,
+            1.7,
+            1.8,
+            1.9,
+            2.0
+        ],
+        "Incense": "False",
+        "Count": 8
+    },
+    "GUILDS": {
+        "Guilds": [
+            1223559895358509096
+        ]
+    },
+    "WEBHOOK": {
+        "Webhook": "https://discord.com/api/webhooks/1226840683411935282/uY8s0oVf16lCyNJQCcHZBrA3ZNQ7Y-3pFE_ibjDnjZeMYdp2ZuDg_8aDJDQD1sTcxuJj"
+    }
+}
