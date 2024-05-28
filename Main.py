@@ -13,7 +13,7 @@ from discord.ext import commands, tasks
 from tensorflow.keras.models import load_model
 
 # Config Initialisation
-with open("PokeAi-2/Config.json", "r") as f:
+with open("Config.json", "r") as f:
     config = json.load(f)
 
 token = config["BOT"]["Token"]
@@ -43,21 +43,21 @@ bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
 
 # Model Initialisation
-loaded_model = load_model("PokeAi-2/Model.h5", compile=False)
-with open("PokeAi-2/Classes.json", "r") as f:
+loaded_model = load_model("Model.h5", compile=False)
+with open("Classes.json", "r") as f:
     classes = json.load(f)
-with open("PokeAi-2/Pokemon", "r", encoding="utf8") as file:
+with open("Pokemon", "r", encoding="utf8") as file:
     pokemon_list = file.read()
 
 # Catch Count Updater
 def update_count():
     config["CATCH"]["Count"] += 1
-    with open("PokeAi-2/Config.json", "w") as f:
+    with open("Config.json", "w") as f:
         json.dump(config, f, indent=4)
 
 def count_reset():
     config["CATCH"]["Count"] = 1
-    with open("PokeAi-2/Config.json", "w") as f:
+    with open("Config.json", "w") as f:
         json.dump(config, f, indent=4)
 
 # Hint Solver
@@ -130,7 +130,7 @@ async def spam():
     if spam_message == "":
         return
 
-    messages = open("PokeAi-2/Messages/Messages.txt", "r").readlines()
+    messages = open("Messages/Messages.txt", "r").readlines()
     multi_spam_message = random.choice(messages)
 
     spam_type = [spam_message, multi_spam_message]
@@ -139,13 +139,13 @@ async def spam():
 
 def enable_spam():
     config["SPAM"]["Spam"] = "Enabled"
-    with open("PokeAi-2/Config.json", "w") as f:
+    with open("Config.json", "w") as f:
         json.dump(config, f, indent=4)
 
 
 def disable_spam():
     config["SPAM"]["Spam"] = "Disabled"
-    with open("PokeAi-2/Config.json", "w") as f:
+    with open("Config.json", "w") as f:
         json.dump(config, f, indent=4)
 
 
@@ -190,7 +190,7 @@ async def help(ctx):
 @bot.command()
 async def incense(ctx):
     config["CATCH"]["Incense"] = "True"
-    with open("PokeAi-2/Config.json", "w") as f:
+    with open("Config.json", "w") as f:
         json.dump(config, f, indent=4)
     await ctx.send("Incense Enabled")
 
@@ -264,8 +264,10 @@ async def on_message(message):
                     description=f"Name : {pokemon_name}\nLevel : {pokemon_level}\n\nIV : {iv}\n\nNumber : {count}",
                     color=discord.Color.green(),
                 )
+                
+                embed.author = discord.EmbedAuthor(name=bot.user.name, icon_url=bot.user.avatar_url)
 
-                with open("PokeAi-2/PokeDex.json", "r") as f:
+                with open("PokeDex.json", "r") as f:
                     pokedex = json.load(f)
 
                 for pokemon in pokedex:
